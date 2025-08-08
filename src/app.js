@@ -14,6 +14,10 @@ app.use(cors({
     ],
     credentials: true
 }));
+app.use((req, res, next) => {
+  console.log('Incoming request path:', req.originalUrl);
+  next();
+});
 
 
 app.use("/api",botRouter)
